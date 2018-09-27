@@ -1,13 +1,8 @@
 import turtle
 import entities
-import time
 
 wn = turtle.Screen()
 wn.setup(480, 640)
-
-
-
-
 wn.bgpic(entities.IMAGE_DICT['stars'])
 
 for key in entities.IMAGE_DICT:
@@ -29,7 +24,5 @@ wn.onkeypress(player.move_left, "Left")
 wn.onkeypress(player.move_right, "Right")
 wn.listen(xdummy=None, ydummy=None)
 
-# time.sleep(10)
-# for enemy in enemies:
-#     enemy.move_right()
+
 wn.mainloop()
