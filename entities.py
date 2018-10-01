@@ -61,11 +61,12 @@ class Enemy(Entity):
         self.distance = 10
         self.looping = 0
         self.shape(Config.IMAGE_DICT['saucer_1a'])
+        self.speed(1)
 
-    def move_down(self):
+    def move_vertical(self):
         """move down"""
         if self.heading() is not 90.0:
             self.seth(90.0)
-        self.back(25)
+        self.back(10)
 
 

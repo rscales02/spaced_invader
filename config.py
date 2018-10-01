@@ -3,6 +3,7 @@
 configuration file for space invaders 9/28/2018
 """
 
+
 class Config(object):
     """
     configuration class for space invaders

@@ -13,9 +13,13 @@ for key in Config.IMAGE_DICT:
 entity_dict = game_play.create_entity_dict()
 player = entity_dict['player']
 
+game_play.draw_cover()
+
 
 wn.onkeypress(player.move_left, "Left")
 wn.onkeypress(player.move_right, "Right")
+wn.onkeypress(turtle.bye, "Escape")
+
 wn.listen(xdummy=None, ydummy=None)
 
 
