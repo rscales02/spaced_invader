@@ -27,7 +27,8 @@ class Entity(turtle.Turtle):
         """
         if self.heading() is not 180.0:
             self.setheading(180.0)
-        self.forward(self.distance)
+        if self.pos()[0] > Config.XMIN:
+            self.forward(self.distance)
 
     def move_right(self):
         """
@@ -35,7 +36,8 @@ class Entity(turtle.Turtle):
         """
         if self.heading() is not 0.0:
             self.setheading(0.0)
-        self.forward(self.distance)
+        if self.pos()[0] < Config.XMAX:
+            self.forward(self.distance)
 
 
 class Player(Entity):
@@ -59,7 +61,6 @@ class Enemy(Entity):
         self.color('red')
         self.goto(xcord, ycord)
         self.distance = 10
-        self.looping = 0
         self.shape(Config.IMAGE_DICT['saucer_1a'])
         self.speed(1)
 

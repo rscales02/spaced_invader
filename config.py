@@ -8,6 +8,8 @@ class Config(object):
     """
     configuration class for space invaders
     """
+    WN_HEIGHT = 680
+    WN_WIDTH = 480
     XMIN = -220
     XMAX = 205
     YMIN = -300

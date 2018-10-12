@@ -41,8 +41,7 @@ def draw_cover():
         t.goto(x_min, y_min)
         t.begin_fill()
         t.begin_poly()
-        t.pd()
-        for i in range(2):
+        for _ in range(2):
             t.forward(90)
             t.left(90)
             t.forward(45)
@@ -59,13 +58,15 @@ def game_loop(entity_dict):
     """
     enemies = entity_dict['enemies']
     next_enemy_pos = list(map(lambda x: x.pos()[0] + x.distance, enemies))
-    if len(list(filter(lambda x: x < Config.XMIN or x > Config.XMAX, next_enemy_pos))):
+    # check for position outside of frame
+    going_out_of_bounds = len(list(filter(lambda x: x < Config.XMIN or x > Config.XMAX, next_enemy_pos))) > 0
+    if going_out_of_bounds:
         for enemy in enemies:
-            enemy.distance = -enemy.distance
+            enemy.set_distance(-enemy.distance)
             enemy.move_vertical()
             if enemy.speed() < 10:
                 enemy.speed(enemy.speed() + 1)
     for enemy in enemies:
         enemy.move_right()
 
-    turtle.ontimer(game_loop(entity_dict), 10)
+    turtle.ontimer(game_loop(entity_dict), 1)
